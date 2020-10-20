@@ -1,0 +1,25 @@
+<h3
+  nz-title
+  class="title text-center"
+  [ngStyle]="{ height: isCollapsed == true ? '92px' : '62px' }"
+>
+  Yei Linux
+</h3>
+<ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+  <li nz-submenu nzTitle="Clients" nzIcon="team">
+    <ul>
+      <li nz-menu-item routerLink="/identity/clients/settings">Configuracion</li>
+    </ul>
+  </li>
+  <li nz-submenu nzTitle="Token" nzIcon="smile">
+    <ul>
+      <li nz-menu-item routerLink="/identity/token/signature">Signature</li>
+      <li nz-menu-item routerLink="/identity/token/additional-information">Aditional Information</li>
+    </ul>
+  </li>
+  <li nz-submenu nzTitle="Users" nzIcon="user">
+    <ul>
+      <li nz-menu-item routerLink="/identity/users/team">Configuracion</li>
+    </ul>
+  </li>
+</ul>

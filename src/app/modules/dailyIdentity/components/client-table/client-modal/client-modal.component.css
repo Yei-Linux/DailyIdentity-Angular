@@ -1,0 +1,18 @@
+@media (min-width:351px){
+    .stepClass{
+        margin-top: 50px;
+    }
+}
+
+@media (max-width:350px){
+    .stepClass{
+        margin-top: 30px;
+    }
+    .ant-modal-body {
+        padding: 0px !important;
+    }
+}
+
+.cardCustomer{
+    padding: 1.5rem;
+}

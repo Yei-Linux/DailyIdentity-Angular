@@ -1,0 +1,12 @@
+.topbar{
+  background: white;
+  padding: 0 rem(20);
+  min-height: 64px;
+  height: 64px;
+  border-bottom: 1px solid gray;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+}

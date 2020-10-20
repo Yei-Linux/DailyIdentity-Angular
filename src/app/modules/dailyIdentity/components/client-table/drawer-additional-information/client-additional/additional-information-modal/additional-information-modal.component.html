@@ -1,0 +1,25 @@
+<form nz-form [formGroup]="additionalInformationForm" style="padding: 20px;">
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired
+      >Field</nz-form-label
+    >
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzHasFeedback nzErrorTip="Empty Field">
+      <input nz-input formControlName="field" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired
+      >Value</nz-form-label
+    >
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzHasFeedback nzErrorTip="Empty Value">
+      <input nz-input formControlName="value" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <div style="display: flex; justify-content: center;">
+    <button nz-button nzType="primary" [nzSize]="size" nzShape="round" (click)="addField()">
+      <i nz-icon nzType="plus" nzTheme="outline"></i>Add 
+    </button>
+  </div>
+</form>

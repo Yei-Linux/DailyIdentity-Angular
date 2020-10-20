@@ -1,0 +1,70 @@
+<div *ngIf="list.length != 0" style="margin-top: 70px;">
+  <nz-spin [nzSpinning]="isSpinning">
+    <nz-transfer
+      [nzDataSource]="list"
+      [nzDisabled]="disabled"
+      [nzShowSearch]="showSearch"
+      [nzShowSelectAll]="false"
+      [nzRenderList]="[renderList, renderList]"
+    >
+      <ng-template
+        #renderList
+        let-items
+        let-direction="direction"
+        let-stat="stat"
+        let-disabled="disabled"
+        let-onItemSelectAll="onItemSelectAll"
+        let-onItemSelect="onItemSelect"
+      >
+        <nz-table #t [nzData]="convertItems(items)" nzSize="small">
+          <thead>
+            <tr>
+              <th
+                nzShowCheckbox
+                [nzDisabled]="disabled"
+                [nzChecked]="stat.checkAll"
+                [nzIndeterminate]="stat.checkHalf"
+                (nzCheckedChange)="onItemSelectAll($event)"
+              ></th>
+              <th>Name</th>
+              <th *ngIf="direction === 'left'">Tag</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of t.data" (click)="onItemSelect(data)">
+              <td
+                nzShowCheckbox
+                [nzChecked]="data.checked"
+                [nzDisabled]="disabled || data.disabled"
+                (nzCheckedChange)="onItemSelect(data)"
+              ></td>
+              <td>{{ data.title }}</td>
+              <td *ngIf="direction === 'left'">
+                <nz-tag>{{ data.tag }}</nz-tag>
+              </td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </ng-template>
+    </nz-transfer>
+
+    <div
+      style="
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;"
+      class="steps-action"
+    >
+      <button
+        nz-button
+        nzType="primary"
+        [nzSize]="size"
+        nzShape="round"
+        (click)="updateAdditionalInformationFields()"
+      >
+        <i nz-icon nzType="file-text" nzTheme="outline"></i>Update Additional
+        Information
+      </button>
+    </div>
+  </nz-spin>
+</div>

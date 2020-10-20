@@ -1,0 +1,27 @@
+<nz-drawer
+  [nzClosable]="false"
+  [nzWidth]="320"
+  [nzVisible]="visible"
+  nzTitle="Additional Information Client"
+  (nzOnClose)="close()"
+>
+  <app-token-additional
+    [(additionalInformation)]="additionalInformation"
+    (updateAdditionalInformationClient)="updateAdditionalField($event)"
+  >
+  </app-token-additional>
+
+  <div class="footer">
+    <button
+      type="button"
+      (click)="close()"
+      class="ant-btn"
+      style="margin-right: 8px;"
+    >
+      <span>Cancel</span>
+    </button>
+    <button *ngIf="hasSubmitFooter" type="button" (click)="close()" class="ant-btn ant-btn-primary">
+      <span>Submit</span>
+    </button>
+  </div>
+</nz-drawer>

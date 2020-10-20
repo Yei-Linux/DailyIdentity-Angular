@@ -1,0 +1,17 @@
+.title {
+  padding: 5px;
+  background: #002140;
+  color: white;
+  font-family: "Liu Jian Mao Cao", cursive;
+  margin-bottom: 0px;
+}
+
+.ant-menu-dark {
+  background: #8b28f6;
+  color: white;
+}
+
+.ant-menu-item-selected {
+  background: #3e414c !important;
+  color: white !important;
+}

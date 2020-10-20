@@ -1,0 +1,21 @@
+<nz-table nzShowPagination #tableData [nzData]="users" [nzScroll]="{ x: '400px' }">
+  <thead>
+    <tr>
+      <th nzShowCheckbox></th>
+      <th>FullName</th>
+      <th>UserName</th>
+      <th>Phone</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let user of tableData.data; let index = index">
+      <td nzShowCheckbox></td>
+      <td>{{ user.personDetails.fullName }}</td>
+      <td>{{ user.userName }}</td>
+      <td>{{ user.phoneNumber }}</td>
+      <td>{{ user.personDetails.age }}</td>
+    </tr>
+  </tbody>
+</nz-table>

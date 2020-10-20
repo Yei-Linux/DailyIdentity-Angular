@@ -1,0 +1,50 @@
+<nz-spin [nzSpinning]="isSpinning">
+  <form nz-form [formGroup]="dynamicalFormGroup" class="mt-5" style="margin: auto;">
+    <div  class="row" *ngFor="let elementOfForm of controlsNameOfDynamicalForm">
+      
+      <div class="col-12" style="margin-bottom: 15px;" nzRequired>{{
+        elementOfForm
+      }} : </div>
+
+      <div class="col-xs-8" style="margin-left: 15px;"  nzHasFeedback nzErrorTip="Empty Value">
+        <input nz-input formControlName="{{ elementOfForm }}" />
+      </div>
+
+      <div class="col-xs-4" style="margin-left: 15px;">
+        <button
+        style="display: inline-block;"
+        nz-popconfirm
+        nzPopconfirmTitle="Are you sure delete this field?"
+        (nzOnConfirm)="deleteFieldToDynamicalForm(elementOfForm)"
+        (nzOnCancel)="cancelDeleteField(elementOfForm)"
+        nzPopconfirmPlacement="top"
+        nz-button
+        >
+          <i
+            nz-icon
+            nzType="delete"
+            nzTheme="twotone"
+            nzTwotoneColor="#fe346e"
+          ></i>
+        </button>
+      </div>
+
+    </div>
+  
+    <br />
+  
+    <div style="display: flex; justify-content: center;" class="steps-action">
+      <button nz-button nzType="primary" [nzSize]="size" nzShape="round" class="mr-3" (click)="launchModalAddField('Add Field')">
+        <i nz-icon nzType="plus" nzTheme="outline"></i>Add field
+      </button>
+      <button nz-button nzType="primary" [nzSize]="size" nzShape="round" (click)="updateAdditionalInformation()">
+        <i nz-icon nzType="upload" nzTheme="outline"></i>Load Information
+      </button>
+    </div>
+  </form>
+</nz-spin>
+
+
+<pre *ngIf="isJsonTest">
+    {{ dynamicalFormGroup.value | json }}
+</pre>

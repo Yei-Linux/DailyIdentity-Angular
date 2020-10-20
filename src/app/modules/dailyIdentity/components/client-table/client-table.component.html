@@ -1,0 +1,58 @@
+<nz-table
+  nzShowPagination
+  #tableData
+  [nzData]="clients"
+  [nzScroll]="{ x: '400px' }"
+>
+  <thead>
+    <tr>
+      <th nzShowCheckbox></th>
+      <th>Id</th>
+      <th>Description</th>
+      <th>Scope</th>
+      <th nzAlign="center">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let client of tableData.data; let index = index">
+      <td nzShowCheckbox></td>
+      <td>{{ client.client_id }}</td>
+      <td>{{ client.description }}</td>
+      <td>{{ client.scope }}</td>
+      <td nzAlign="center">
+        <button
+          nz-button
+          nz-tooltip
+          nzSize="large"
+          nzType="link"
+          nzTitle="Edit"
+          nzPlacement="top"
+          (click)="editClientByClientId(client.client_id)"
+        >
+          <i
+            nz-icon
+            nzType="edit"
+            nzTheme="twotone"
+            nzTwotoneColor="#f39834"
+          ></i>
+        </button>
+        <button
+          nz-popconfirm
+          nzPopconfirmTitle="Are you sure delete this client?"
+          (nzOnConfirm)="deleteClientByClientId(client.client_id)"
+          (nzOnCancel)="cancelDeleteClient(client.client_id)"
+          nzPopconfirmPlacement="top"
+          nz-button
+        >
+          <i
+            nz-icon
+            nzType="delete"
+            nzTheme="twotone"
+            nzTwotoneColor="#fe346e"
+          ></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

@@ -1,0 +1,45 @@
+<div class="topbar">
+  <div class="d-flex justify-content-end p-3">
+    <a
+      nz-dropdown
+      nzTrigger="click"
+      [nzDropdownMenu]="profile"
+      class="dropdown"
+    >
+      <nz-badge>
+        <nz-avatar
+          nzIcon="user"
+          [nzShape]="'square'"
+          [nzSize]="'large'"
+          class="avatar"
+          nzSrc="https://avatarfiles.alphacoders.com/168/168464.gif"
+        ></nz-avatar>
+      </nz-badge>
+    </a>
+    <nz-dropdown-menu #profile="nzDropdownMenu">
+      <ul nz-menu>
+        <li nz-menu-item>
+          <strong>Hola, {{fullName}}</strong>
+        </li>
+        <li nz-menu-divider></li>
+        <li nz-menu-item>
+          <div>
+            <strong>
+              Email:
+            </strong>
+            {{email}}
+          </div>
+        </li>
+        <li nz-menu-divider></li>
+        <li nz-menu-item (click)="logOut()">
+          <a href="javascript: void(0);">
+            <i class="menuIcon icmn-exit"></i>
+            Desconectarse
+          </a>
+        </li>
+      </ul>
+    </nz-dropdown-menu>
+  </div>
+  <div></div>
+  <div></div>
+</div>

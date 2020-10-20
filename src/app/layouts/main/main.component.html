@@ -1,0 +1,40 @@
+<nz-layout>
+
+  <nz-sider
+    *ngIf="!isMobileView"
+    nzCollapsible
+    [(nzCollapsed)]="isCollapsed"
+    nzWidth="200px"
+    style="background: #7e0cf5;color: white;"
+  >
+    <app-menu [(isCollapsed)]="isCollapsed"></app-menu>
+  </nz-sider>
+
+  <nz-drawer *ngIf="isMobileView" [nzClosable]="false" [nzWrapClassName]="'mobileMenu'" [nzVisible]="isMobileMenuOpen"
+    nzPlacement="left" (nzOnClose)="toggleMobileMenu()">
+    <div class="mobileMenu-handler" (click)="toggleMobileMenu()">
+      <div class="mobileMenu-handlerIcon"></div>
+    </div>
+    <app-menu [(isCollapsed)]="isCollapsed"></app-menu>
+  </nz-drawer>
+
+  <nz-layout>
+    <nz-header>
+      <app-header></app-header>
+    </nz-header>
+
+    <nz-content>
+      <nz-breadcrumb>
+        <nz-breadcrumb-item>User</nz-breadcrumb-item>
+        <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
+      </nz-breadcrumb>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+
+    <nz-footer class="text-center" style="background: #ffa259;color: white;">
+      <p>&copy; 2020 Yei Linux. All rights reserved.</p>
+    </nz-footer>
+  </nz-layout>
+</nz-layout>

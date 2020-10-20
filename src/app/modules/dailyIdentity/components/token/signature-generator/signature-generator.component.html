@@ -1,0 +1,32 @@
+<form nz-form [formGroup]="signatureForm" class="mt-5">
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>Private Key</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <textarea rows="8" nz-input formControlName="privateKey" placeholder="Copy Here Private Key Format -----BEGIN RSA PRIVATE KEY-----"></textarea>
+      <br>
+      <span nz-text><code>Command line to generate private key: ssh-keygen -t rsa</code></span>
+    </nz-form-control>
+  </nz-form-item>
+  
+  <nz-form-item> 
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>Public Key</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <textarea rows="8" nz-input formControlName="publicKey" placeholder="Copy Here Public Key Format -----BEGIN RSA PUBLIC KEY-----"></textarea>
+      <br>
+      <span nz-text><code>Command line to generate public key: ssh-keygen -f private_key_file.ext -e -m pem</code></span>
+    </nz-form-control>
+  </nz-form-item>
+
+  <br />
+
+  <div
+    style="
+      display: flex;
+      justify-content: center;"
+    class="steps-action"
+  >
+    <button nz-button nzType="primary" [nzSize]="size" nzShape="round" (click)="generateSignature()">
+      <i nz-icon nzType="file-text" nzTheme="outline"></i>Generate Signature
+    </button>
+  </div>
+</form>

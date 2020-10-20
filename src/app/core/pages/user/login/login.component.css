@@ -1,0 +1,26 @@
+.cardHeader {
+  color: white;
+  height: 60px;
+  background: url("../../../../../assets/banner1.png");
+  background-size: 350px 200px;
+  height: 200px;
+}
+
+.login-form-forgot { 
+  float: right;
+}
+
+.login-form-button {
+  width: 60%;
+  height: 40px;
+  background-color: #42e6a4;
+  font-family: "Liu Jian Mao Cao", cursive !important;
+  font-size: 1.8em !important;
+  color: white !important;
+}
+
+.generalShadow{
+  -webkit-box-shadow: 10px 9px 22px -10px rgba(0, 0, 0, 0.89);
+  -moz-box-shadow: 10px 9px 22px -10px rgba(0, 0, 0, 0.89);
+  box-shadow: 10px 9px 22px -10px rgba(0, 0, 0, 0.89);
+}
